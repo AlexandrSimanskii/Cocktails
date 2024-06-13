@@ -21,7 +21,7 @@ function removeIngredient() {
 <template>
   <div>
     <AppLayout
-      imgUrl="/src/assets/images/image/cocktail_1.jpg"
+      imgUrl="/cocktail_1.jpg"
       :backFunc="removeIngredient"
       :is-back-button-visible="!!ingredient"
       ><div class="wrapper">
@@ -53,7 +53,7 @@ function removeIngredient() {
           </div>
           <img
             class="img"
-            src="../assets/images/image/1665865889_66-podacha-blud-com-p-shot-kokteil-krasivie-foto-71 2.png"
+            src="/1665865889_66-podacha-blud-com-p-shot-kokteil-krasivie-foto-71 2.png"
             alt="coctails"
           />
         </div>
