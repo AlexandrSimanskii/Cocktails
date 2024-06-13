@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from "@/components/AppLayout.vue";
-import { computed,  ref, } from "vue";
+import { computed, ref } from "vue";
 import axios from "axios";
 import { COCKTAIL_RANDOM, INGREDIENT_PIC } from "../constants";
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -24,9 +24,6 @@ const ingredients = computed(() => {
   return ingredients;
 });
 
-
-
-
 async function getCocktail() {
   try {
     const data = await axios.get(`${COCKTAIL_RANDOM}`);
@@ -36,12 +33,12 @@ async function getCocktail() {
   }
 }
 const modules = [Navigation, Pagination];
-getCocktail()
+getCocktail();
 </script>
 
 <template>
   <div v-if="cocktail" class="wrap">
-    <AppLayout :imgUrl="cocktail.strDrinkThumb" >
+    <AppLayout :imgUrl="cocktail.strDrinkThumb">
       <div class="wrapper">
         <div class="info">
           <div class="title">{{ cocktail.strDrink }}</div>
@@ -50,18 +47,26 @@ getCocktail()
             <swiper
               class="swiper"
               :modules="modules"
-              :slides-per-view="3"
+              :slides-per-view="1"
               :space-between="50"
               navigation
               loop
+              :breakpoints="{
+                400: {
+                  slidesPerView: 2,
+                },
+                900: {
+                  slidesPerView: 3,
+                },
+              }"
             >
               <swiper-slide v-for="(ingredient, key) in ingredients" :key="key">
                 <img
                   :src="`${INGREDIENT_PIC}${ingredient}-Small.png`"
                   :alt="ingredient"
                 />
-                <p class="name">{{ ingredient }}</p> </swiper-slide
-              >ngvbmnhgbm
+                <p class="name">{{ ingredient }}</p>
+              </swiper-slide>
             </swiper>
           </div>
           <ul class="list"></ul>
@@ -77,8 +82,8 @@ getCocktail()
   padding: 50px 0;
 }
 .swiper {
-  width: 586px;
-  height: 150px;
+  max-width: 366px;
+  height: 160px;
 
   --swiper-navigation-size: 24px;
   --swiper-navigation-top-offset: 40%;
@@ -87,5 +92,10 @@ getCocktail()
 }
 .name {
   padding-top: 20px;
+}
+@media (max-width: 400px) {
+  .swiper {
+    max-width: 320px;
+  }
 }
 </style>

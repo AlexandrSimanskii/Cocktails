@@ -70,7 +70,6 @@ function removeIngredient() {
           </div>
         </div></div
     ></AppLayout>
- 
   </div>
 </template>
 
@@ -108,7 +107,7 @@ function removeIngredient() {
 }
 .cocktails {
   display: flex;
-  /* justify-content: space-between; */
+
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
@@ -118,6 +117,16 @@ function removeIngredient() {
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+@media (max-width: 500px) {
+  .cocktails {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 430px) {
+  .text {
+    font-size: 14px;
   }
 }
 </style>

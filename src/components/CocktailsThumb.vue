@@ -20,27 +20,32 @@ const props = defineProps({
 @import "../assets/styles/main";
 .root {
   width: calc((100% - 76px) / 3);
-  /* padding-right: 38px; */
-  /* padding-bottom: 20px; */
-  /* :nth-child(3n + 3) {
-    padding-right: 0;
-  } */
-  .pic {
-    height: 120px;
-    width: 120px;
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-  }
-  .name {
-    width: 100%;
+}
+.pic {
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+.name {
+  width: 100%;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-top: 16px;
-    letter-spacing: 0.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 16px;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 500px) {
+  .root {
+    width: calc((100% - 76px) / 2);
+  }
+  .pic {
+    height: 100px;
+    width: 100px;
   }
 }
 </style>
